@@ -75,6 +75,7 @@
     var guess = document.getElementById("guessResults");
     var random;
     function Start() {
+      p.innerHTML='';
       random = Math.floor(Math.random() * 10000).toString();
       while (random.length != 4 || random[0] == random[1] ||
         random[0] == random[2] || random[0] == random[3] ||
@@ -90,17 +91,27 @@
     }
 
     function Guess() {
+      
       var li = document.createElement("li");
       li.className = "list-group-item";
       var span = document.createElement("span");
       var ansA = 0;
       var ansB = 0;
       var user = document.getElementById("userGuess").value.toString();
+      var input=document.getElementById("userGuess");
+      //超過四位數
+      if(user.length!=4){
+       input.value=null;
+        alert('輸入數字長度錯誤')
+           
+        return;
+    
+      }
       // 判斷輸入重複數字
       if (user[0] == user[1] || user[0] == user[2] || user[0] == user[3]
         || user[1] == user[2] || user[1] == user[3] || user[2] == user[3]) {
-        p.innerHTML = "不可以這樣";
-        Input.value = null;
+          alert('不可以這樣')
+        input.value = null;
         return;  //跳出方法
       }
 

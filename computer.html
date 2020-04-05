@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .wrap {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 3px solid black;
+            background-color: wheat;
+        }
+        input {
+            width: 90%;
+            height: 50px;
+            border: 2px solid blueviolet;
+            margin: 5px 0px;
+        }
+        button {
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+        }
+
+        .btn {
+            margin: 5px 0px;
+            display: flex;
+            width: 90%;
+            flex-wrap: wrap;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>計算機</h1>
+        <input type="text" id="input">
+        <div class=btn>
+        
+            <button onclick="number(this)">7</button>
+            <button onclick="number(this)">8</button>
+            <button onclick="number(this)">9</button>
+            <button onclick="number(this)">/</button>
+            <button onclick="number(this)">4</button>
+            <button onclick="number(this)">5</button>
+            <button onclick="number(this)">6</button>
+            <button onclick="number(this)">X</button>
+            <button onclick="number(this)">1</button>
+            <button onclick="number(this)">2</button>
+            <button onclick="number(this)">3</button>
+            <button onclick="number(this)">-</button>
+            <button onclick="number(this)">0</button>
+            <button onclick="number(this)">.</button>
+            <button onclick="check()">+</button>
+            <button onclick="check()">=</button>
+        </div>
+    </div>
+</body>
+</html>
