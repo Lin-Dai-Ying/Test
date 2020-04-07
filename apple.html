@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="iphone()">iphone</button>
+    <button onclick="ipad()">ipad</button>
+    <button onclick="mac()">Mac</button>
+    <div id="qq"></div>
+    <div id="ww"></div>
+
+    <script>
+        var products = {
+            iphone: [
+                { id: '01', color: '綠', price: '25000', storage: '64G', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ2nwf49OTZSK39adTNTceH489QZKf5Ci4-qcA9HxvCg8Z5hsfD&usqp=CAU' },
+                { id: '02', color: '金', price: '26000', storage: '128G', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRS94JpTKGItSfH5p7eSom74AIPrELCqQJMwx2CZc8tS2DuTN4zRItkpWry9jfORDOWgC_uFBY&usqp=CAc' },
+                { id: '03', color: '白', price: '24000', storage: '256G', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqFr0YQqYDrGjV4jrhEigQSPXFse50PXR8lRnO2ybih1r4giQalACEN4ecy_DWt_IxQQJDYts&usqp=CAc' }],
+            ipad: {},
+            Mac: {},
+            watch: {}
+        };
+        var body = document.getElementsByTagName('body')[0];
+        var div = document.getElementById('qq');
+        var ww = document.getElementById('ww');
+        function iphone() {
+
+            products.iphone.forEach(function (str) {
+                div.innerHTML += `<button onclick="newf('${str.color}')">${str.color}</button>`;
+            })
+            products.iphone.forEach(function (str) {
+                div.innerHTML += `<button onclick="newf('${str.storage}')">${str.storage}</button>`;
+            })
+            // if(button=='綠'){
+            //     div.innerHTML = `<img src="${products.iphone.p01.url}" alt="">`;
+            // };
+
+
+
+            // div.innerHTML = `<img src="${products.iphone.p01.url}" alt="">`;
+            // for (i = 0; i < iphone.length; i++) {
+            //     // var btn = document.createElement('button');
+            //     // btn.innerHTML = iphone[i];
+            //     div.innerHTML += `<button>3</button>`;
+
+            // }
+        }
+        function newf(col1) {
+            products.iphone.forEach(function (str) {
+                for (const prop in str) {
+                    if (prop == 'color') {
+                        if (str[prop] == col1) {
+                            ww.innerHTML = `<img src="${str.url}" alt="">`;
+                        }
+                        else if (str[prop] == col1) {
+                            ww.innerHTML = `<img src="${str.url}" alt="">`;
+                        }
+                        else if (str[prop] == col1) {
+                            ww.innerHTML = `<img src="${str.url}" alt="">`;
+                        }
+                    }
+
+                }
+            }
+            )
+        }
+    </script>
+</body>
+
+</html>

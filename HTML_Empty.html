@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM</h1>
+    <button onclick="createp()">p</button>
+    <button onclick="createli()"> li </button>
+
+    <script>
+        var Array1=['widow','documnt','html'];
+        var Array2=['node','nodelist','htmlcollection'];
+        var body=document.getElementsByTagName('body')[0];
+
+        function createp(){
+            var div=document.createElement('div');
+            body.appendChild(div);
+
+            for(i=0;i<Array1.length;i++)
+            {
+                var p=document.createElement('p');
+                p.innerHTML=Array1[i];
+                div.appendChild(p);
+            };
+        }
+
+        function createli(){
+            var ul=document.createElement('ul');
+            body.appendChild(ul);
+            for(i=0;i<Array2.length;i++)
+            {
+                var li=document.createElement('li');
+                li.innerHTML=Array2[i];
+                ul.appendChild(li);
+            };
+        }
+
+    </script>
+</body>
+</html>
