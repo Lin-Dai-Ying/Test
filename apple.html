@@ -6,14 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
+<style>
+    div.qq{
+        width: 450px;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 3px solid black;
+    }
+    .warp{
+        margin: auto;
+            display: flex;
+            /* flex-wrap: wrap-reverse */
+            flex-direction: column;
+            width: 900px;
+            height: 600px;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 3px solid black;
+            background-color: wheat;
+    }
+</style>
 <body>
-
+<div class="warp">
     <button onclick="iphone()">iphone</button>
     <button onclick="ipad()">ipad</button>
     <button onclick="mac()">Mac</button>
     <div id="qq"></div>
     <div id="ww"></div>
+</div>
 
     <script>
         var products = {
@@ -36,19 +56,6 @@
             products.iphone.forEach(function (str) {
                 div.innerHTML += `<button onclick="newf('${str.storage}')">${str.storage}</button>`;
             })
-            // if(button=='綠'){
-            //     div.innerHTML = `<img src="${products.iphone.p01.url}" alt="">`;
-            // };
-
-
-
-            // div.innerHTML = `<img src="${products.iphone.p01.url}" alt="">`;
-            // for (i = 0; i < iphone.length; i++) {
-            //     // var btn = document.createElement('button');
-            //     // btn.innerHTML = iphone[i];
-            //     div.innerHTML += `<button>3</button>`;
-
-            // }
         }
         function newf(col1) {
             products.iphone.forEach(function (str) {
