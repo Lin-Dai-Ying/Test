@@ -30,7 +30,7 @@
                 mapTypeId: 'terrain'
             });
 
-            const url = 'http://127.0.0.1:5500/information.json';
+            const url = 'https://maskmap.azurewebsites.net/api/mask/getmaskstock';
             fetch(url)
                 .then((response) => response.json())
                 .then((data) => {
