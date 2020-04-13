@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: new google.maps.LatLng(24.774390, 120.943449),
+                mapTypeId: 'terrain'
+            });
+
+            const url = 'http://127.0.0.1:5500/information.json';
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    // Put your code here
+                    data.features.forEach((item) => {
+                        if (item.properties.masksLeft == 0 && item.properties.childMasksLeft == 0) {
+                            
+                        
+                            var marker = new google.maps.Marker(
+                                {
+                                    position: new google.maps.LatLng(item.geometry.coordinates[1], item.geometry.coordinates[0]),
+                                    title:`大人${item.properties.masksLeft},小孩${item.properties.childMasksLeft}`,
+                                    map: map,
+                                    icon:'sad .png'
+                                });
+                        }else if(item.properties.masksLeft == 0 && item.properties.childMasksLeft != 0){
+                            var marker = new google.maps.Marker(
+                                {
+                                    position: new google.maps.LatLng(item.geometry.coordinates[1], item.geometry.coordinates[0]),
+                                    title:`大人${item.properties.masksLeft},小孩${item.properties.childMasksLeft}`,
+                                    map: map,
+                                    icon: 'avatar.png'
+                                });
+
+                        }else if(item.properties.masksLeft != 0 && item.properties.childMasksLeft == 0){
+                            var marker = new google.maps.Marker(
+                                {
+                                    position: new google.maps.LatLng(item.geometry.coordinates[1], item.geometry.coordinates[0]),
+                                    title:`大人${item.properties.masksLeft},小孩${item.properties.childMasksLeft}`,
+                                    map: map,
+                                    icon: 'team.png'
+                                });
+
+                        }else{
+                            var marker = new google.maps.Marker(
+                                {
+                                    position: new google.maps.LatLng(item.geometry.coordinates[1], item.geometry.coordinates[0]),
+                                    title:`大人${item.properties.masksLeft},小孩${item.properties.childMasksLeft}`,
+                                    map: map,
+                                    icon: 'health.png'
+                                });
+
+                        }
+
+
+                    })
+
+
+
+
+
+
+
+                })
+                .catch((error) => {
+                    // Handle the error
+                });
+
+        }
+
+
+        window.eqfeed_callback = function (results) {
+            for (var i = 0; i < results.features.length; i++) {
+                var coords = results.features[i].geometry.coordinates;
+                var latLng = new google.maps.LatLng(coords[1], coords[0]);
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map
+                });
+            }
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlKWP4uWjQIR3WDAWLAu6rUhBfc3_ppag&callback=initMap">
+        </script>
+</body>
+
+</html>
