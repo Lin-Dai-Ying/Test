@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+    <title>N-Puzzle</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #E4FDE1;
+            font-family: 'Sofia';
+            text-align: center;
+
+        }
+
+        body {
+            display: flex;
+            background-color: #114B5F;
+            text-align: center;
+            flex-direction: column;
+            padding-top: 2%;
+
+        }
+
+        #container {
+            width: 500px;
+            height: 500px;
+            background: #E4FDE1;
+            margin: 10px auto;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            justify-content: space-evenly;
+            font-family: 'Audiowide';
+            color: #E4FDE1;
+        }
+
+        ul li {
+            background: #456990;
+            width: 30%;
+            height: 150px;
+            border: 1px solid #028090;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 2rem;
+            padding-top: 3rem;
+        }
+
+        .but {
+
+            width: 400px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            margin: 0px auto;
+
+        }
+
+        button {
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: larger;
+            font-family: cursive;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>N-Puzzle</h1>
+    <div id="container">
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+            <li>F</li>
+            <li>G</li>
+            <li>H</li>
+            <li class="empty"></li>
+        </ul>
+    </div>
+    <div class="but">
+        <button>開 始</button>
+        <button>不玩了</button>
+        <button>看答案</button>
+    </div>
+
+</body>
+<script src="js/script.js"></script>
+
+</html>

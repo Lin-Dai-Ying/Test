@@ -26,6 +26,7 @@
     <select name="district" id="district">
         <option value="">---請選擇行政區---</option>
     </select>
+    <button onclick="submiData()">提交資料</button>
     <p id="demo"></p>
     <script>
         let cityjson;
@@ -62,7 +63,18 @@
                 option2.text = cityjson[Index - 1].Districts[j].District;
                 district.add(option2);
             }
+            // districtSelect.add
 
+        }
+        function submiData(){
+            let formData=new FormData();
+            formData.append("city",citySelect.selectedOptions[0].text);
+            formData.append("District",districtSelect.selectedOptions[0].text);
+            let xhr=new XMLHttpRequest();
+            xhr.open("POST","https://www.codemagic.com.tw");
+            xhr.send(formData);
+            
+            
         }
     </script>
 
