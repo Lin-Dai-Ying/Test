@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #pic{
+            width: 450px;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <button id="star">打散圖片</button>
+    <button id="ans">解答</button>
+    <canvas id="canvas" hidden></canvas>
+    <div id="pic"></div>
+    <script>
+        display();
+        var pics = document.getElementById("pic");
+        function display() {
+            var canvas = document.getElementById("canvas");
+           var ctx = document.getElementById("canvas").getContext('2d');
+           var n = 3;
+            var img = new Image();//整張圖的代表
+            img.onload = function () {
+                let x = img.width / n;
+                let y = img.height / n;
+                canvas.height = 450 / n;
+                canvas.width = 450 / n;
+                for (let i = 0; i < n; i++) {
+                    for (let j = 0; j < n; j++) {
+                        if(i==n-1 && j==n-1)
+                        {
+                            var dataurl = canvas.toDataURL();
+                            var imgs = document.createElement('img');
+                            imgs.src=dataurl;
+                            imgs.id='blank';
+                        
+
+                        }
+                        else{
+                             ctx.drawImage(img, j * x, i * y, x, y, 0, 0, canvas.width-1, canvas.height-1);
+                        //切成九格
+                        var dataurl = canvas.toDataURL();//存取分割後的圖片來源
+                        
+                        var imgs = document.createElement('img');
+                        imgs.src = dataurl;
+                        }
+                        ctx.clearRect(0,0,canvas.width,canvas.height);
+                        pics.appendChild(imgs);
+                    }
+                    
+                }
+
+            }
+            img.src='111.jpg';
+
+        }
+
+
+    </script>
+
 </body>
+
 </html>
