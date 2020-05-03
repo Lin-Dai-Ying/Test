@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>寶可夢圖鑑列表</h1>
+    <button id='addone' onclick="AddPokemon()">Click +1</button>
+    <button id='minusone' onclick="MinusPokemon()">Click -1</button>
+    <button id='ShowAll' onclick="ShowAll()">Click To Show All</button>
+    <div id="container">
+    </div>
+    <script>
+        //var container = document.getElementById('container');
+        //window.onload=appendPokemon(); //window載入時，執行appendPokemon()方法，新增
+        var $container=$("#container");
+       
+        // function appendPokemon(){
+        //     //let img = document.createElement('img'); //create <img> element
+        //     let $img=$('$<img>');
+        //     //img.setAttribute('src', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png'); //set img's src
+        //     $("$img")
+        //     //container.appendChild(img); //add img into <div>
+        //     $("$img").append('$<img>');
+        // }
+        
+        // function appendPokemonByTemplate(){
+        //     let fileName = '001';
+        //     let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+        //     let pokemonImg = `<img src='${pathFile}'>`;
+        //     container.innerHTML = pokemonImg;
+        // }
+        var index = 1;
+        function AddPokemon(){
+            //let img = document.createElement('img');
+            let img=$('<img>');
+            let no = index.toString().padStart(3, '0');
+            img.attr('src', `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${no}.png`); //set img's src
+            //container.appendChild(img); //add img into <div>
+            $("#container").append(img);
+            index++;
+        }
+        function MinusPokemon(){
+            var len = container.childNodes.length;
+            if(len>0){
+                container.removeChild(container.childNodes[len-1]);
+                index>1? index-- : index;
+            }
+        }
+        function ShowAll(){
+            for(var i=1; i<=890; i++){
+                let no = i.toString().padStart(3, '0');
+                let img =$('<img>'); //create <img> element
+                img.attr('src', `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${no}.png`); //set img's src
+                $('#container').append(img); //add img into <div>
+            }
+           
+        }
+        
+    </script>
+</body>
+</html>
